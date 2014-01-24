@@ -11,6 +11,9 @@
   },
   "devDependencies": {
     "gulp": "~3.4.0",
-    "gulp-nodemon": "~0.1.2"
+    "gulp-nodemon": "~0.1.2",
+    "recess": "~1.1.9",
+    "gulp-recess": "~0.2.0",
+    "gulp-less": "~1.1.10"
   }
 }
