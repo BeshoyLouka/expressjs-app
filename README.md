@@ -21,3 +21,4 @@ module.exports = {
 };
 
 ```
+- add the previos `local.js` to your .gitignore if you want
