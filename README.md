@@ -6,7 +6,7 @@ with sequelize.js as an ORM and gulb.js for tasks
 #### add your database config attr
 
 - Navigate to your app root directory
-- `mkdir config && touch local.js`
+- `mkdir config && touch config/local.js`
 - Confugure your database, and refer to sequelize.js usage/options for more details
 
 ``` Javascript
