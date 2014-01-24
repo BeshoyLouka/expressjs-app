@@ -5,13 +5,13 @@ var gulp = require('gulp'),
 
 
 gulp.task('recess', function () {
-    gulp.src('./public/css/less/bootstrap.less')
+    gulp.src('./public/css/less/main.less')
 //        .pipe(recess())
         .pipe(less())
         .pipe(gulp.dest('./public/css/'));
 });
 
 gulp.task('server', function () {
-  nodemon({ script: 'server.js', options: '-e html,js -i bootstrap.css' });
+  nodemon({ script: 'server.js', options: '-e html,js -i main.css' });
 });
 
