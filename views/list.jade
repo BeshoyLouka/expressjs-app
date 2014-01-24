@@ -14,17 +14,14 @@ block content
 
     ul
     each user in users
-        li
-        = user.username
+        li= user.username
         ul
-            li
-            | Creating a new project:
+            li Creat a new project:
             form(action="/users/" + user.id + "/projects/create", method="post", style="display: inline")
                 input(type="text", name="title")
                 input(type="submit")
             each project in user.projects
-                li
-                    = project.title
+                li= project.title
                     | &nbsp;
                     | (
                     a(href="/users/" + user.id + "/projects/" + project.id + "/destroy") Destroy
