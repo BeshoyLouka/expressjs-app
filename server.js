@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , project = require('./routes/project')
   , http = require('http')
   , path = require('path')
   , db = require('./models');
@@ -32,10 +33,14 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.post('/users/create', user.create);
+
+app.post('/users/:user_id/projects/create', project.create);
+app.get('/users/:user_id/projects/:project_id/destroy', project.destroy);
 
 
 db.sequelize
-            .sync({ force:true })
+            .sync({ force:false })
             .complete(function(err){
                 if (err){
                     throw err;

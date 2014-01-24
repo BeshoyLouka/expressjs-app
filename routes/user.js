@@ -15,3 +15,10 @@ exports.list = function(req, res){
     });
   });
 };
+
+
+exports.create = function(req, res) {
+  db.User.create({ username: req.param('username') }).success(function() {
+    res.redirect('/users');
+  });
+};
