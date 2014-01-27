@@ -22,7 +22,7 @@ exports.create = function(req, res) {
 
  var hashPswd = function(v){
         var hash = bcrypt.hashSync(v, 8);
-        return hash.toString();
+        return hash;
   };
 
   db.User.create({
@@ -34,8 +34,6 @@ exports.create = function(req, res) {
         res.redirect('/users');
   });
 
-
-  console.log(hashPswd('withthis'));
 
 };
 
