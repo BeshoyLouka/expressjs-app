@@ -7,14 +7,18 @@ block content
 
     h2 Creating a new user
     form(action="/users/create", method="post")
-        input(type="text", name="username")
+        input(type="text", name="name")
+        input(type="text", name="title")
+        input(type="email", name="email")
+        input(type="password", name="password")
+        input(type="password", name="confirm")
         input(type="submit")
 
     h2 Users
 
     ul
     each user in users
-        li= user.username
+        li= user.name
         ul
             li Creat a new project:
             form(action="/users/" + user.id + "/projects/create", method="post", style="display: inline")
