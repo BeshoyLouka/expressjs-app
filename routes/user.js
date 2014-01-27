@@ -19,6 +19,12 @@ exports.list = function(req, res){
 
 
 exports.create = function(req, res) {
+
+ var hashPswd = function(v){
+        var hash = bcrypt.hashSync(v, 8);
+        return hash.toString();
+  };
+
   db.User.create({
         name: req.param('name'),
         title: req.param('title'),
@@ -27,33 +33,10 @@ exports.create = function(req, res) {
     }).success(function() {
         res.redirect('/users');
   });
-/*
-  var user = db.User.build({
-    name: req.param('name'),
-    title: req.param('title'),
-    email: req.param('email'),
-    password: hashPswd(req.param('password'))
-  });
-  user.save().complete(function(err){
-    if (!!err) {
-      console.log('The instance has not been saved:', err);
-    } else {
-      console.log('We have a persisted instance now');
-    }
-  });
-*/
-  /**/
-  function hashPswd(value) {
-    bcrypt.hash(value, 10, function passwordEncrypted(err, encrypted) {
-        // Store hash in your password DB.
-        console.log('insied the hash func encrypted is: ' + encrypted);
-        //TODO: that solution is creating a new entry row in the db with the hashed pswd
-        db.User.create({ password:encrypted }).success(function(){
-            console.log('saved pswd');
-        });
-    });
-  }
-  /**/
+
+
+  console.log(hashPswd('withthis'));
+
 };
 
 exports.destroy = function(req, res) {
