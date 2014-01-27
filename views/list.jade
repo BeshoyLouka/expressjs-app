@@ -19,6 +19,9 @@ block content
     ul
     each user in users
         li= user.name
+            | (
+            a(href="/users/" + user.id  + "/destroy") Delete #{user.name}
+            | )
         ul
             li Creat a new project:
             form(action="/users/" + user.id + "/projects/create", method="post", style="display: inline")
